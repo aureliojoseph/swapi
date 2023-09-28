@@ -3,8 +3,6 @@
 	justify-content: space-between;
 	align-items: center;
 	height: 90px;
-	border-top: 1px solid #e6e6e6;
-	border-bottom: 1px solid #e6e6e6;
 
 	&__search {
 		display: flex;
@@ -13,7 +11,6 @@
 		padding: 0 50px;
 
 		label {
-			color: #666;
 			font-size: 16px;
 			font-style: normal;
 			font-weight: 400;
@@ -25,7 +22,6 @@
 		text-decoration: none;
 		padding: 1px 40px;
 		margin-right: 50px;
-		border: 1px solid #c8c8c8;
 		font-family: Arial;
 		font-size: 13.3px;
 		font-style: normal;
@@ -38,17 +34,30 @@
 	}
 }
 
-[data-theme='dark'] .filter-nav__search label {
+/* Dark x Light Themes */
+[data-theme='dark'] .filter-nav {
+	border-top: 1px solid #2e2e2e;
+	border-bottom: 1px solid #2e2e2e;
+}
+
+[data-theme='light'] .filter-nav {
+	border-top: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+[data-theme='dark'] .filter-nav__search p {
 	color: #a3a3a3;
 }
 
-[data-theme='light'] .filter-nav__search label {
-	color: #525252;
+[data-theme='light'] .filter-nav__search p {
+	color: #666; /* Design */
+	color: #525252; /* Accessibility */
 }
 
 [data-theme='dark'] .filter-nav button {
-	color: #fff;
+	color: #c8c8c8;
 	background-color: #000;
+	border: 1px solid #c8c8c8;
 
 	&:hover {
 		background-color: #333333;
@@ -56,11 +65,13 @@
 }
 
 [data-theme='light'] .filter-nav button {
-	color: #505050;
+	color: #c8c8c8; /* Design */
+	color: #505050; /* Accessibility */
 	background-color: #fff;
+	border: 1px solid #c8c8c8;
 
 	&:hover {
-		color: #3c3c3c;
-		background-color: #e6e6e6;
+		color: #484848; /* Accessibility */
+		background-color: rgba(230, 230, 230, 0.4);
 	}
 }

@@ -7,3 +7,12 @@
 		font-weight: 400;
 	}
 }
+
+/* Dark x Light Themes */
+[data-theme='dark'] .footer__text {
+	color: #a3a3a3;
+}
+
+[data-theme='light'] .footer__text {
+	color: #525252;
+}

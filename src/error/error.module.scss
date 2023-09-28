@@ -4,3 +4,21 @@
 	align-items: center;
 	gap: 1rem;
 }
+
+/* Dark x Light Themes */
+[data-theme='dark'] .error h3 {
+	color: #999;
+}
+
+[data-theme='light'] .error h3 {
+	color: #333;
+}
+
+[data-theme='dark'] .error h5 {
+	color: #a3a3a3;
+}
+
+[data-theme='light'] .error h5 {
+	color: #666; /* Design */
+	color: #525252; /* Accessibility */
+}

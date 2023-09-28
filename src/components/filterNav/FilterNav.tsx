@@ -4,7 +4,7 @@ export default function FilterNav() {
 	return (
 		<div className={styles['filter-nav']}>
 			<div className={styles['filter-nav__search']}>
-				<label htmlFor=''>Filter by:</label>
+				<p>Filter by:</p>
 				<input
 					type='text'
 					placeholder='All'
