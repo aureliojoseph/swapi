@@ -10,12 +10,8 @@ import React from 'react'
 
 export default function Home() {
 	const [characters, setCharacters] = useState<PeopleProps | null>(null)
+	const [displayRows, setDisplayRows] = useState(2)
 	const [error, setError] = useState(false)
-
-	const imagesPoll = ['https://picsum.photos/432/230']
-	const getRandomImage = () => {
-		return imagesPoll[0]
-	}
 
 	const loadCharacters = async () => {
 		setCharacters(null)
@@ -29,24 +25,21 @@ export default function Home() {
 			return
 		}
 
-		const results = data.results.map(
-			(result: {
-				name: string
-				homeworld: string
-				height: string
-				mass: string
-				gender: string
-			}) => {
+		const results = (await Promise.all(
+			data.results.map(async (result: any) => {
 				const { name, homeworld, height, mass, gender } = result
-				return {
+				const homeworldResponse = await fetch(homeworld)
+				const homeworldData = await homeworldResponse.json()
+				const character = {
 					name,
-					homeworld,
+					homeworld: homeworldData.name,
 					height,
 					mass,
 					gender
 				}
-			}
-		)
+				return character
+			})
+		)) as PeopleProps['results']
 
 		const charactersData: PeopleProps = { results }
 
@@ -54,9 +47,12 @@ export default function Home() {
 	}
 
 	useEffect(() => {
-		getRandomImage()
 		loadCharacters()
 	}, [])
+
+	const loadMore = () => {
+		setDisplayRows(displayRows + 1)
+	}
 
 	return (
 		<main className={styles['main']}>
@@ -65,9 +61,8 @@ export default function Home() {
 
 				<p>
 					Embark on an unforgettable journey into a galaxy far, far away!
-					Explore the rich tapestry of characters that populate this
-					extraordinary universe and unleash the power of the Force and unravel
-					the secrets of your favorite characters. May the Force be with you!
+					Unleash the power of the Force and unravel the secrets of your
+					favorite characters. May the Force be with you!
 				</p>
 			</div>
 
@@ -76,35 +71,57 @@ export default function Home() {
 			<h2 className={styles['char__heading']}>All Characters</h2>
 
 			<section className={styles['char__section']}>
-				{characters &&
-					characters.results.map((char, index) => (
-						<div
-							className={styles['char__section--content']}
-							key={index}
-						>
-							<Image
-								src={getRandomImage()}
-								alt={'Random image'}
-								width={430}
-								height={230}
-							/>
-
-							<div className={styles['char__section--content-info']}>
-								<p className={styles['name']}>{char.name}</p>
-								<p className={styles['homeworld']}>{char.homeworld}</p>
-							</div>
-
-							<div className={styles['char__section--content-stats']}>
-								<p>Height • {char.height}</p>
-								<p>Mass • {char.mass}</p>
-								<p>Gender • {char.gender}</p>
-							</div>
-						</div>
-					))}
-
 				{error && <Error />}
+
+				{characters &&
+					characters.results.slice(0, displayRows * 4).map((char, index) => {
+						const randomWidth = Math.floor(Math.random() * 500) + 600
+						const randomHeight = Math.floor(Math.random() * 500) + 320
+						const randomImageUrl = `https://picsum.photos/${randomWidth}/${randomHeight}`
+
+						return (
+							<div
+								className={styles['char__section--content']}
+								key={index}
+							>
+								<Image
+									className={styles['char__section--content-img']}
+									src={randomImageUrl}
+									alt={'Random image'}
+									width={432}
+									height={230}
+								/>
+
+								<div className={styles['char__section--content-info']}>
+									<p className={styles['name']}>{char.name}</p>
+									<p className={styles['homeworld']}>{char.homeworld}</p>
+								</div>
+
+								<div className={styles['char__section--content-stats']}>
+									<p>Height • {char.height}</p>
+									<p>Mass • {char.mass}</p>
+									<p>Gender • {char.gender}</p>
+								</div>
+							</div>
+						)
+					})}
 			</section>
-			<button className={styles['load-more__btn']}>Load More</button>
+
+			{characters?.results && displayRows * 4 <= characters.results.length ? (
+				<button
+					className={styles['action-button']}
+					onClick={loadMore}
+				>
+					Load More
+				</button>
+			) : (
+				<button
+					className={styles['action-button']}
+					onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+				>
+					Back to Top
+				</button>
+			)}
 		</main>
 	)
 }
