@@ -1,0 +1,36 @@
+.action-button {
+	align-self: center;
+	text-decoration: none;
+	width: 486px;
+	height: 48px;
+	font-family: Arial;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 46px;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+/* Dark x Light Themes */
+[data-theme='dark'] .action-button {
+	color: #99aaba;
+	background-color: #000;
+	border: 1px solid #99aaba;
+
+	&:hover {
+		color: #ccd5dd;
+		background-color: #333333;
+	}
+}
+
+[data-theme='light'] .action-button {
+	color: #002b53;
+	background-color: #fff;
+	border: 1px solid #002b53;
+
+	&:hover {
+		background-color: rgb(230, 230, 230, 0.4);
+	}
+}
