@@ -2,9 +2,66 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 	padding: 6rem;
 
+	&::before {
+		width: 1000px;
+		height: 400px;
+	}
+
+	&::after {
+		width: 1000px;
+		height: 400px;
+		z-index: -1;
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		left: 25%;
+		top: -90px;
+		position: absolute;
+		filter: blur(45px);
+		transform: translateZ(0);
+	}
+}
+
+/* Dark x Light Themes */
+[data-theme='dark'] .fallback {
+	&::before {
+		background: radial-gradient(
+			to bottom right,
+			rgba(1, 65, 255, 0),
+			rgba(1, 65, 255, 0),
+			rgba(1, 65, 255, 0.3)
+		);
+	}
+
+	&::after {
+		background: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+	}
+
 	h3 {
-		color: #333;
+		color: #fff;
+	}
+}
+
+[data-theme='light'] .fallback {
+	&::before {
+		background: radial-gradient(
+			to bottom right,
+			rgba(1, 65, 255, 0),
+			rgba(1, 65, 255, 0),
+			rgba(1, 65, 255, 0.3)
+		);
+	}
+
+	&::after {
+		background: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+	}
+
+	h3 {
+		color: #000;
 	}
 }
