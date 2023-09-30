@@ -1,17 +1,37 @@
 import styles from './filterNav.module.scss'
 
-export default function FilterNav() {
+export default function FilterNav({
+	selectedPlanet,
+	setSelectedPlanet,
+	clearFilters,
+	homeworlds
+}: any) {
 	return (
 		<div className={styles['filter-nav']}>
 			<div className={styles['filter-nav__search']}>
-				<p>Filter by:</p>
-				<input
-					id='filterBy'
-					type='text'
-					placeholder='All'
-				/>
+				<label htmlFor='planet'>Filter By:</label>
+				<select
+					id='planet'
+					value={selectedPlanet}
+					onChange={(e) => setSelectedPlanet(e.target.value)}
+				>
+					<option
+						value=''
+						selected
+					>
+						All
+					</option>
+					{homeworlds.map((homeworld: any, index: number) => (
+						<option
+							key={index}
+							value={homeworld}
+						>
+							{homeworld}
+						</option>
+					))}
+				</select>
 			</div>
-			<button>Clear All</button>
+			<button onClick={clearFilters}>clear all</button>
 		</div>
 	)
 }

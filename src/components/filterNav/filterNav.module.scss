@@ -10,11 +10,19 @@
 		gap: 12px;
 		padding: 0 50px;
 
-		label {
+		label,
+		select {
 			font-size: 16px;
 			font-style: normal;
 			font-weight: 400;
 			line-height: normal;
+		}
+
+		select {
+			width: 190px;
+			height: 26px;
+			border: none;
+			color: #002b56;
 		}
 	}
 
@@ -38,40 +46,51 @@
 [data-theme='dark'] .filter-nav {
 	border-top: 1px solid #2e2e2e;
 	border-bottom: 1px solid #2e2e2e;
+
+	&__search label {
+		color: #a3a3a3;
+	}
+
+	&__search select {
+		color: #99aabb;
+		background-color: #000;
+		border-bottom: 1px solid #c8c8c8;
+	}
+
+	button {
+		color: #c8c8c8;
+		background-color: #000;
+		border: 1px solid #c8c8c8;
+
+		&:hover {
+			background-color: #333333;
+		}
+	}
 }
 
 [data-theme='light'] .filter-nav {
 	border-top: 1px solid #e6e6e6;
 	border-bottom: 1px solid #e6e6e6;
-}
 
-[data-theme='dark'] .filter-nav__search p {
-	color: #a3a3a3;
-}
-
-[data-theme='light'] .filter-nav__search p {
-	color: #666; /* Design */
-	color: #525252; /* Accessibility */
-}
-
-[data-theme='dark'] .filter-nav button {
-	color: #c8c8c8;
-	background-color: #000;
-	border: 1px solid #c8c8c8;
-
-	&:hover {
-		background-color: #333333;
+	&__search label {
+		color: #666; /* Design */
+		color: #525252; /* Accessibility */
 	}
-}
 
-[data-theme='light'] .filter-nav button {
-	color: #c8c8c8; /* Design */
-	color: #505050; /* Accessibility */
-	background-color: #fff;
-	border: 1px solid #c8c8c8;
+	&__search select {
+		border-bottom: 1px solid #c8c8c8; /* Design */
+		border-bottom: 1px solid #505050; /* Accessibility */
+	}
 
-	&:hover {
-		color: #484848; /* Accessibility */
-		background-color: rgba(230, 230, 230, 0.4);
+	button {
+		color: #c8c8c8; /* Design */
+		color: #505050; /* Accessibility */
+		background-color: #fff;
+		border: 1px solid #c8c8c8;
+
+		&:hover {
+			color: #484848; /* Accessibility */
+			background-color: rgba(230, 230, 230, 0.4);
+		}
 	}
 }
