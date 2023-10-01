@@ -14,12 +14,16 @@
 	}
 }
 
-[data-theme='dark'] .navbar__icon:hover {
-	background-color: #fff;
-	color: #000;
-}
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+	/* Dark x Light Themes */
+	[data-theme='dark'] .navbar__icon:hover {
+		background-color: #fff;
+		color: #000;
+	}
 
-[data-theme='light'] .navbar__icon:hover {
-	background-color: #000;
-	color: #fff;
+	[data-theme='light'] .navbar__icon:hover {
+		background-color: #000;
+		color: #fff;
+	}
 }

@@ -14,8 +14,8 @@ export default function Characters({
 			{filteredCharacters
 				.slice(0, displayRows * 4)
 				.map((char: any, index: number) => {
-					const randomWidth = Math.floor(Math.random() * 500) + 600
-					const randomHeight = Math.floor(Math.random() * 500) + 320
+					const randomWidth = Math.floor(Math.random() * 500) + 200
+					const randomHeight = Math.floor(Math.random() * 500) + 220
 					const randomImageUrl = `https://picsum.photos/${randomWidth}/${randomHeight}`
 
 					return (
@@ -23,13 +23,15 @@ export default function Characters({
 							className={styles['char__section--content']}
 							key={index}
 						>
-							<Image
-								className={styles['char__section--content-img']}
-								src={randomImageUrl}
-								alt={'Random image'}
-								width={432}
-								height={230}
-							/>
+							<div className={styles['char__section--content-grid']}>
+								<Image
+									className={styles['char__section--content-grid--img']}
+									src={randomImageUrl}
+									alt={'Random image'}
+									width={432}
+									height={230}
+								/>
+							</div>
 
 							<div className={styles['char__section--content-info']}>
 								<p className={styles['name']}>{char.name}</p>

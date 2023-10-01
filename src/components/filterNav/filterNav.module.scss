@@ -94,3 +94,30 @@
 		}
 	}
 }
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+	[data-theme='dark'] .filter-nav,
+	[data-theme='light'] .filter-nav {
+		border-bottom: none;
+	}
+
+	.filter-nav {
+		button {
+			display: none;
+		}
+	}
+
+	.filter-nav__search {
+		padding: 0 25px;
+	}
+}
+
+/* Smaller Mobile Phones */
+@media screen and (max-width: 390px) {
+	.filter-nav__search {
+		select {
+			width: auto;
+		}
+	}
+}

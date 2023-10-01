@@ -3,7 +3,7 @@
 
 	&__text {
 		text-align: center;
-		font-size: 0.8rem;
+		font-size: 12px;
 		font-weight: 400;
 	}
 }
@@ -15,4 +15,11 @@
 
 [data-theme='light'] .footer__text {
 	color: #525252;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+	.footer__text {
+		font-size: 10px;
+	}
 }

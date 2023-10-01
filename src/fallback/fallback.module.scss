@@ -65,3 +65,20 @@
 		color: #000;
 	}
 }
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+	.fallback {
+		padding: 3rem 6rem;
+
+		h3 {
+			font-size: 10px;
+		}
+
+		&::before {
+			left: -120px;
+			width: 100px;
+			height: 20px;
+		}
+	}
+}
