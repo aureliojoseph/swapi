@@ -80,9 +80,8 @@ export default function Home() {
 				<h1>Star Wars Characters</h1>
 
 				<p>
-					Embark on an unforgettable journey into a galaxy far, far away!
-					Unleash the power of the Force and unravel the secrets of your
-					favorite characters. May the Force be with you!
+					Embark on an unforgettable journey into a galaxy far, far away! May
+					the Force be with you!
 				</p>
 			</div>
 
