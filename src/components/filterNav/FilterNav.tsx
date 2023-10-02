@@ -17,7 +17,7 @@ export default function FilterNav({
 				>
 					<option
 						value=''
-						selected
+						defaultValue={'All'}
 					>
 						All
 					</option>
