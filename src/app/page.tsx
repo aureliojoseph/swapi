@@ -18,10 +18,14 @@ export default function Home() {
 		setCharacters(null)
 		setError(false)
 
-		const res = await fetch(`https://swapi.dev/api/people/`)
+		const res = await fetch('https://swapi.dev/api/people/', {
+			cache: 'force-cache'
+		})
 		const data = await res.json()
+		console.log(data)
+		console.error(error)
 
-		if (res.status === 404 || data.count === 0) {
+		if (res.status === 404) {
 			setError(true)
 			return
 		}
