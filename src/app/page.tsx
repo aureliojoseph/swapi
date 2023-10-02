@@ -18,9 +18,7 @@ export default function Home() {
 		setCharacters(null)
 		setError(false)
 
-		const res = await fetch('https://swapi.dev/api/people/', {
-			cache: 'force-cache'
-		})
+		const res = await fetch('https://swapi.dev/api/people')
 		const data = await res.json()
 
 		if (res.status === 404) {
