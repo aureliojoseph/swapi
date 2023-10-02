@@ -1,0 +1,16 @@
+{
+	"name": "Star Wars Characters",
+	"short_name": "SW-Characters",
+	"description": "All the Star Wars data you've ever wanted: Planets, Spaceships, Vehicles, People, Films and Species, From all SEVEN Star Wars films, Now with The Force Awakens data!",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#000",
+	"theme_color": "#000",
+	"icons": [
+		{
+			"src": "/icon.jpeg",
+			"sizes": "any",
+			"type": "image/x-icon"
+		}
+	]
+}

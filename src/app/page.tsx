@@ -22,8 +22,6 @@ export default function Home() {
 			cache: 'force-cache'
 		})
 		const data = await res.json()
-		console.log(data)
-		console.error(error)
 
 		if (res.status === 404) {
 			setError(true)
