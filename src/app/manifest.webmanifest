@@ -4,11 +4,14 @@
 	"description": "All the Star Wars data you've ever wanted: Planets, Spaceships, Vehicles, People, Films and Species, From all SEVEN Star Wars films, Now with The Force Awakens data!",
 	"start_url": "/",
 	"display": "standalone",
+	"background_color": "#fff",
+	"theme_color": "#fff",
 	"icons": [
 		{
-			"src": "/icon.jpeg",
-			"sizes": "any",
-			"type": "image/x-icon"
+			"src": "/icon.png",
+			"sizes": "642x333",
+			"type": "image/png"
 		}
-	]
+	],
+	"purpose": "any"
 }
