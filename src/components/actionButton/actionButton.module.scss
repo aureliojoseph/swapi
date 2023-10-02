@@ -13,28 +13,25 @@
 	cursor: pointer;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-	/* Dark x Light Themes */
-	[data-theme='dark'] .action-button {
-		color: #99aaba;
-		background-color: #000;
-		border: 1px solid #99aaba;
+/* Dark x Light Themes */
+[data-theme='dark'] .action-button {
+	color: #99aaba;
+	background-color: #000;
+	border: 1px solid #99aaba;
 
-		&:hover {
-			color: #ccd5dd;
-			background-color: #333333;
-		}
+	&:hover {
+		color: #ccd5dd;
+		background-color: #333333;
 	}
+}
 
-	[data-theme='light'] .action-button {
-		color: #002b53;
-		background-color: #fff;
-		border: 1px solid #002b53;
+[data-theme='light'] .action-button {
+	color: #002b53;
+	background-color: #fff;
+	border: 1px solid #002b53;
 
-		&:hover {
-			background-color: rgb(230, 230, 230, 0.4);
-		}
+	&:hover {
+		background-color: rgb(230, 230, 230, 0.4);
 	}
 }
 
