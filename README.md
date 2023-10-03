@@ -15,7 +15,9 @@ Here are the used features:
 Stars Wars Characters API:
 
 [https://swapi.dev](https://swapi.dev)
+
 [http://swapi.dev/api/planets](http://swapi.dev/api/planets)
+
 [http://swapi.dev/api/peolpe](http://swapi.dev/api/peolpe)
 
 ### Images/Photos Placeholder
