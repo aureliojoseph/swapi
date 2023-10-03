@@ -22,11 +22,13 @@
 		"save-dev": "^0.0.1-security"
 	},
 	"devDependencies": {
+		"@testing-library/react": "^14.0.0",
 		"@types/node": "latest",
 		"@types/react": "latest",
 		"@types/react-dom": "latest",
 		"eslint": "latest",
 		"eslint-config-next": "latest",
+		"jest": "^29.7.0",
 		"sass": "^1.68.0",
 		"typescript": "latest"
 	}
