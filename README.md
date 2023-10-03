@@ -55,7 +55,7 @@ to adapt the system colors, I used
 
 As required, I defined responsive layout, ensuring Mobile support and
 accessibility, defining common breakpoints for media queries, down to Mobile
-Devices with [`min-width:280px`].
+Devices with `min-width:280px`.
 
 ### Bonus Features
 
