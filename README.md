@@ -97,17 +97,17 @@ Once the server is running, navigate to
 [http://localhost:3000](http://localhost:3000) in your web browser to view the
 application.
 
-By default, the app should display two rows - depending on viewport size - of
-Star Wars characters data. You can filter these characters by their "Homeworld"
-using the filter option. To reset the filter, click the Clear All button.
+The app starts by presenting the page with an Unleash the Force button. Click it
+and, by default, the app should display two rows - depending on viewport size -
+of Star Wars characters data. You can filter these characters by their
+"Homeworld" using the filter option. To reset the filter, click the Clear All
+button.
 
 Click the Load More button to display more characters, and Back to Top button to
 scroll back to the top of the page when all characters are shown.
 
 You can also switch between Dark and Light modes by clicking on the icon in the
 top right corner of the page, in the navigation bar.
-
-## How to Test
 
 ## Improvement Opportunities
 
@@ -117,8 +117,14 @@ Since the application required the use of an image generator, this impacted the
 performance of the page. For instance, delaying the Largest Contentful Paint
 (LCP). I suggest the use of static images stored, for example, in an array.
 
-Also, as the page is assembled with all the requested data on first render, I
-suggest implementing a button or other type of UI in which the user makes the
-request after the page loads.
+Also, the original design was to render the page with all the requested data on
+first render, which was causing bad performance as the page was taking too long
+to load. It would be an improvement suggestion, but I decided to implement a
+button for the user to make the request after the page loads.
+
+Finally, I setup the basic configuration for testing. Unfortunately, I was
+unable to implement some tests without hurting the project delivery deadline.
+Therefore, testing with Jest and React Testing Library remains an opportunity
+for improvement.
 
 ## This project was Deployed on [Vercel](https://vercel.com/)
