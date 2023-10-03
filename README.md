@@ -1,8 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Introduction
+
+The Star Wars Characters App is a React-based application developed using
+Next.js. It fetches data from Star Wars API - Swapi - to display Star Wars
+characters and allows users to interact with its data.
+
+## Design and Architecture
+
+The application was designed with Next.js, React's recommended framework.
+
+Here are the used features:
+
+### Data Source API
+
+Stars Wars Characters API:
+
+[https://swapi.dev](https://swapi.dev)
+[http://swapi.dev/api/planets](http://swapi.dev/api/planets)
+[http://swapi.dev/api/peolpe](http://swapi.dev/api/peolpe)
+
+### Images/Photos Placeholder
+
+[https://picsum.photos/](https://picsum.photos/)
+
+### Design Source
+
+[Figma](https://www.figma.com/file/5CMAkR0A4OHSS83xjIiShv/CloudWalk-FrontEnd-test?type=design&node-id=1-2&mode=design&t=otdkyhu2C3PXANEH-0)
+
+### Styling
+
+#### [CSS Modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules)
+
+#### [Sass](https://nextjs.org/docs/app/building-your-application/styling/sass)
+
+#### [React Icons Library](https://react-icons.github.io/react-icons/)
+
+### Testing
+
+#### [Jest](https://jestjs.io/docs/getting-started)
+
+#### [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+## Accessibility and Good Practices
+
+### Contrast Ratio
+
+To ensure an accessible design, I left comments in the style files, highlighting
+the design system provided and immediately after, my suggestions for good
+accessibility practices.
+
+For securing accessibility I used
+[Color Contrast Checker](https://coolors.co/contrast-checker/112a46-acc8e5) and
+to adapt the system colors, I used
+[Tint & Shade Generator](https://maketintsandshades.com/)
+
+### Responsiveness
+
+As required, I defined responsive layout, ensuring Mobile support and
+accessibility, defining common breakpoints for media queries, down to Mobile
+Devices with [`min-width:280px`].
+
+### Bonus Features
+
+I included subtle animations to focus attention, when the user hovers the
+images.
+
+Also, implemented Dark x Light mode using
+[Next-Themes Library](https://www.npmjs.com/package/next-themes?activeTab=readme.)
+
+## Prerequisites
+
+To run the application, you need to have Node.js installed on your system. You
+can follow the instructions on the [Node.js](https://nodejs.org/en) official
+download page to install Node.js.
 
 ## Getting Started
 
-First, run the development server:
+First, clone this [repository](https://github.com/aureliojoseph/swapi):
+
+#### https://github.com/aureliojoseph/swapi.git
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -14,23 +91,34 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Use
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once the server is running, navigate to
+[http://localhost:3000](http://localhost:3000) in your web browser to view the
+application.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+By default, the app should display two rows - depending on viewport size - of
+Star Wars characters data. You can filter these characters by their "Homeworld"
+using the filter option. To reset the filter, click the Clear All button.
 
-## Learn More
+Click the Load More button to display more characters, and Back to Top button to
+scroll back to the top of the page when all characters are shown.
 
-To learn more about Next.js, take a look at the following resources:
+You can also switch between Dark and Light modes by clicking on the icon in the
+top right corner of the page, in the navigation bar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How to Test
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Improvement Opportunities
 
-## Deploy on Vercel
+### Image/Photos Resources
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Since the application required the use of an image generator, this impacted the
+performance of the page. For instance, delaying the Largest Contentful Paint
+(LCP). I suggest the use of static images stored, for example, in an array.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Also, as the page is assembled with all the requested data on first render, I
+suggest implementing a button or other type of UI in which the user makes the
+request after the page loads.
+
+## This project was Deployed on [Vercel](https://vercel.com/)
