@@ -10,46 +10,18 @@ import ActionButton from '@/components/actionButton/ActionButton'
 
 export default function Home() {
 	const [characters, setCharacters] = useState<PeopleProps | null>(null)
-	const [error, setError] = useState(false)
 	const [selectedPlanet, setSelectedPlanet] = useState<string>('')
 	const [displayRows, setDisplayRows] = useState(2)
 
-	const loadCharacters = async () => {
+	const showCharacters = async () => {
 		setCharacters(null)
-		setError(false)
 
 		const res = await fetch('/api/page')
 		const data = await res.json()
+		console.log(data)
 
-		if (res.status === 404) {
-			setError(true)
-			return
-		}
-
-		const results = (await Promise.all(
-			data.results.map(async (result: any) => {
-				const { name, homeworld, height, mass, gender } = result
-				const homeworldResponse = await fetch(homeworld)
-				const homeworldData = await homeworldResponse.json()
-				const character = {
-					name,
-					homeworld: homeworldData.name,
-					height,
-					mass,
-					gender
-				}
-				return character
-			})
-		)) as PeopleProps['results']
-
-		const charactersData: PeopleProps = { results }
-
-		setCharacters(charactersData)
+		setCharacters(data)
 	}
-
-	useEffect(() => {
-		loadCharacters()
-	}, [])
 
 	const filteredCharacters = characters
 		? characters.results.filter((character) => {
@@ -85,21 +57,25 @@ export default function Home() {
 				</p>
 			</div>
 
-			<FilterNav
-				selectedPlanet={selectedPlanet}
-				setSelectedPlanet={setSelectedPlanet}
-				clearFilters={clearFilters}
-				homeworlds={homeworlds}
-			/>
-
-			<h2 className={styles['char__heading']}>All Characters</h2>
-
 			{!characters || !characters.results ? (
-				<Fallback />
+				<ActionButton
+					characters={characters}
+					displayRows={displayRows}
+					loadMore={loadMore}
+					showCharacters={showCharacters}
+				/>
 			) : (
 				<>
+					<FilterNav
+						selectedPlanet={selectedPlanet}
+						setSelectedPlanet={setSelectedPlanet}
+						clearFilters={clearFilters}
+						homeworlds={homeworlds}
+					/>
+
+					<h2 className={styles['char__heading']}>All Characters</h2>
+
 					<Characters
-						error={error}
 						filteredCharacters={filteredCharacters}
 						displayRows={displayRows}
 					/>

@@ -1,13 +1,33 @@
+'use client'
+
+import { useState } from 'react'
 import styles from './actionButton.module.scss'
 
 export default function ActionButton({
 	characters,
 	displayRows,
-	loadMore
+	loadMore,
+	showCharacters
 }: any) {
+	const [isLoading, setIsLoading] = useState('Unleash the Force!')
+
+	const handleShowCharacters = () => {
+		showCharacters()
+		setIsLoading('Loading...')
+	}
+
 	return (
 		<>
-			{characters?.results && displayRows * 4 <= characters.results.length ? (
+			{showCharacters ? (
+				<button
+					id='actionBtn'
+					className={styles['action-button']}
+					onClick={handleShowCharacters}
+				>
+					{isLoading}
+				</button>
+			) : characters?.results &&
+			  displayRows * 4 <= characters.results.length ? (
 				<button
 					id='actionBtn'
 					className={styles['action-button']}

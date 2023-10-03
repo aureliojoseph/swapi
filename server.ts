@@ -9,8 +9,13 @@ const handle = app.getRequestHandler()
 app.prepare().then(() => {
 	const server = express()
 
-	// Use the cors middleware
-	server.use(cors({ origin: 'https://swapi.dev/api/' }))
+	server.use(
+		cors({
+			origin: 'https://swapi.dev',
+			methods: ['GET', 'POST', 'PUT', 'DELETE'],
+			credentials: true
+		})
+	)
 
 	server.options('*', cors())
 
@@ -18,8 +23,8 @@ app.prepare().then(() => {
 		return handle(req, res)
 	})
 
-	server.listen(3000, (err: any) => {
+	server.listen(8080, (err: any) => {
 		if (err) throw err
-		console.log('> Ready on http://localhost:3000')
+		console.log('> Ready on http://localhost:8080')
 	})
 })

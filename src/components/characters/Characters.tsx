@@ -1,16 +1,9 @@
 import styles from './characters.module.scss'
-import Error from '@/error/Error'
 import Image from 'next/image'
 
-export default function Characters({
-	error,
-	filteredCharacters,
-	displayRows
-}: any) {
+export default function Characters({ filteredCharacters, displayRows }: any) {
 	return (
 		<section className={styles['char__section']}>
-			{error && <Error />}
-
 			{filteredCharacters
 				.slice(0, displayRows * 4)
 				.map((char: any, index: number) => {
@@ -30,6 +23,7 @@ export default function Characters({
 									alt={'Random image'}
 									width={432}
 									height={230}
+									priority={true}
 								/>
 							</div>
 
