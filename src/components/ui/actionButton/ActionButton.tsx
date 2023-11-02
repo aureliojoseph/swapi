@@ -16,9 +16,9 @@ export default function ActionButton({
 		setIsLoading('Loading...')
 	}
 
-	return (
-		<>
-			{showCharacters ? ( // extract logic
+	const renderActionButton = () => {
+		if (showCharacters) {
+			return (
 				<button
 					id='actionBtn'
 					className={styles['action-button']}
@@ -26,8 +26,11 @@ export default function ActionButton({
 				>
 					{isLoading}
 				</button>
-			) : characters?.results &&
-			  displayRows * 4 <= characters.results.length ? (
+			)
+		}
+
+		if (characters?.results && displayRows * 4 <= characters.results.length) {
+			return (
 				<button
 					id='actionBtn'
 					className={styles['action-button']}
@@ -35,15 +38,19 @@ export default function ActionButton({
 				>
 					Load More
 				</button>
-			) : (
-				<button
-					id='actionBtn'
-					className={styles['action-button']}
-					onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-				>
-					Back to Top
-				</button>
-			)}
-		</>
-	)
+			)
+		}
+
+		return (
+			<button
+				id='actionBtn'
+				className={styles['action-button']}
+				onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+			>
+				Back to Top
+			</button>
+		)
+	}
+
+	return <>{renderActionButton()}</>
 }
