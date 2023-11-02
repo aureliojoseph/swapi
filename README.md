@@ -15,8 +15,6 @@ Here are the used features:
 Stars Wars Characters API:
 
 [https://swapi.dev](https://swapi.dev)
-[http://swapi.dev/api/planets](http://swapi.dev/api/planets)
-[http://swapi.dev/api/peolpe](http://swapi.dev/api/peolpe)
 
 ### Images/Photos Placeholder
 
@@ -57,7 +55,7 @@ to adapt the system colors, I used
 
 As required, I defined responsive layout, ensuring Mobile support and
 accessibility, defining common breakpoints for media queries, down to Mobile
-Devices with [`min-width:280px`].
+Devices with `min-width:280px`.
 
 ### Bonus Features
 
