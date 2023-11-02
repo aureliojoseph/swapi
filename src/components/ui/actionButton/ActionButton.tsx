@@ -18,7 +18,7 @@ export default function ActionButton({
 
 	return (
 		<>
-			{showCharacters ? (
+			{showCharacters ? ( // extract logic
 				<button
 					id='actionBtn'
 					className={styles['action-button']}

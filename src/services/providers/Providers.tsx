@@ -2,7 +2,7 @@
 
 import { ThemeProvider } from 'next-themes'
 import { useEffect, useState } from 'react'
-import Fallback from '@/fallback/Fallback'
+import Fallback from '@/utils/fallback/Fallback'
 
 export default function Providers({ children }: any) {
 	const [mounted, setMounted] = useState(false)

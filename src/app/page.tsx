@@ -1,12 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { PeopleProps } from '@/types/characters'
+import { PeopleProps } from '@/utils/characters'
 import styles from './page.module.scss'
-import Fallback from '@/fallback/Fallback'
-import FilterNav from '@/components/filterNav/FilterNav'
+import FilterNav from '@/components/ui/filterNav/FilterNav'
 import Characters from '@/components/characters/Characters'
-import ActionButton from '@/components/actionButton/ActionButton'
+import ActionButton from '@/components/ui/actionButton/ActionButton'
 
 export default function Home() {
 	const [characters, setCharacters] = useState<PeopleProps | null>(null)
