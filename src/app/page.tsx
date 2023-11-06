@@ -1,14 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { PeopleProps } from '@/utils/characters'
+import { useState } from 'react'
+import { Person } from '@/utils/characters'
 import styles from './page.module.scss'
-import FilterNav from '@/components/ui/filterNav/FilterNav'
+import FilterNav from '@/components/filterNav/FilterNav'
 import Characters from '@/components/characters/Characters'
 import ActionButton from '@/components/ui/actionButton/ActionButton'
 
 export default function Home() {
-	const [characters, setCharacters] = useState<PeopleProps | null>(null)
+	const [characters, setCharacters] = useState<Person | null>(null)
 	const [selectedPlanet, setSelectedPlanet] = useState<string>('')
 	const [displayRows, setDisplayRows] = useState(2)
 

@@ -1,4 +1,4 @@
-export type PeopleProps = {
+export type Person = {
 	results: [
 		{
 			name: string
